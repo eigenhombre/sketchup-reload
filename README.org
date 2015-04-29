@@ -1,6 +1,6 @@
 #+TITLE: Auto-reload Plugin
 
-[[https://github.com/eigenhombre/sketchup-reload/blob/master/scan_plugins.rb][=scan_plugins.rb=]] is a plugin for the [[http://www.sketchup.com][SketchUp]] 3d drawing program.
+[[https://github.com/eigenhombre/sketchup-reload/blob/master/scan_plugins.rb][scan_plugins.rb]] is a plugin for the [[http://www.sketchup.com][SketchUp]] 3d drawing program.
 
 The plugin monitors any given directory and looks for any changed
 =.rb= files. When your code changes, it is reloaded into SketchUp
