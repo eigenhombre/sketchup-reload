@@ -1,18 +1,17 @@
-#+TITLE: scan_plugins.rb
+#+TITLE: Auto-reload Plugin
 
-* Auto-reload Plugin
-
-=scan_plugins.rb= is a plugin for the [[http://www.sketchup.com][SketchUp]] 3d drawing program.
+[[https://github.com/eigenhombre/sketchup-reload/blob/master/scan_plugins.rb][=scan_plugins.rb=]] is a plugin for the [[http://www.sketchup.com][SketchUp]] 3d drawing program.
 
 The plugin monitors any given directory and looks for any changed
 =.rb= files. When your code changes, it is reloaded into SketchUp
 automatically. This means you can work in your own plugin directory,
 and won’t need to restart SketchUp to test changes to your scripts.
 
-I found the plugin-writing process somewhat frustrating because, in
-order to install a new plugin, you typically have to quit SketchUp and
-restart it. This is murder if you test continuously as you develop (as
-we all do... right?). =scan_plugins= avoids this problem.
+Initially, I found the plugin-writing process somewhat frustrating
+because, in order to install a new plugin, you typically have to quit
+SketchUp and restart it. This is murder if you test continuously as
+you develop (as we all do... right?). =scan_plugins= avoids this
+problem.
 
 Caveat: because each file will be executed as soon as it is changed,
 the Ruby files in the specified directory should consist ONLY of
@@ -27,12 +26,16 @@ by greatly reducing the turnaround time for testing.
 - Find the plugin directory for the version of SketchUp you're using.
   Call that the /install/ plugin directory.
 - Decide where you want your personal, in-development plugins to live
-  (NOT the /install/ plugin directory).  Call that the /working/ plugin directory.
+  (NOT the /install/ plugin directory).  Call that the /working/
+  plugin directory.  (You don't want these to be the same because the
+  install plugin directory depends on the version of SketchUp you
+  happen to have installed at the moment.  Using the install directory
+  as the working directory will NOT work with this plugin.)
 - Change the =PATH= variable in =scan_plugins.rb= to the working plugin directory.
 - Copy =scan_plugins.rb= to the install plugin directory.
 - Start SketchUp.
 - Edit and save the plugin files to your heart's content, reaping the
-  fruits of your work automatically each time.
+  fruits of your work automatically each time you save.
 
 * License
 
