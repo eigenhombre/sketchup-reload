@@ -1,0 +1,47 @@
+#+TITLE: scan_plugins.rb
+
+* Auto-reload Plugin
+
+=scan_plugins.rb= is a plugin for the [[http://www.sketchup.com][SketchUp]] 3d drawing program.
+
+The plugin monitors any given directory and looks for any changed
+=.rb= files. When your code changes, it is reloaded into SketchUp
+automatically. This means you can work in your own plugin directory,
+and won’t need to restart SketchUp to test changes to your scripts.
+
+I found the plugin-writing process somewhat frustrating because, in
+order to install a new plugin, you typically have to quit SketchUp and
+restart it. This is murder if you test continuously as you develop (as
+we all do... right?). =scan_plugins= avoids this problem.
+
+Caveat: because each file will be executed as soon as it is changed,
+the Ruby files in the specified directory should consist ONLY of
+SketchUp plugins! Put your Ruby-based disk cleanup programs,
+WEP-cracking utilities, etc., elsewhere.
+
+I have found this script indispensable while developing other plugins,
+by greatly reducing the turnaround time for testing.
+
+* Usage:
+
+- Find the plugin directory for the version of SketchUp you're using.
+  Call that the /install/ plugin directory.
+- Decide where you want your personal, in-development plugins to live
+  (NOT the /install/ plugin directory).  Call that the /working/ plugin directory.
+- Change the =PATH= variable in =scan_plugins.rb= to the working plugin directory.
+- Copy =scan_plugins.rb= to the install plugin directory.
+- Start SketchUp.
+- Edit and save the plugin files to your heart's content, reaping the
+  fruits of your work automatically each time.
+
+* License
+
+MIT.  See =LICENSE=.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
